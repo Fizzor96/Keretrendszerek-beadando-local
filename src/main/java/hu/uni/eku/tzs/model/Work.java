@@ -22,5 +22,5 @@ public class Work {
     private int date;
 
     private String genreType;
-
+    
 }
