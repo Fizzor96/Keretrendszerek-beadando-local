@@ -1,7 +1,5 @@
 package hu.uni.eku.tzs.controller.dto;
 
-
-import hu.uni.eku.tzs.model.Chapter;
 import hu.uni.eku.tzs.model.Character;
 import org.mapstruct.Mapper;
 

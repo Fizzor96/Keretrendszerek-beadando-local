@@ -1,6 +1,10 @@
 package hu.uni.eku.tzs.model;
 
-import lombok.*;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.AllArgsConstructor;
+import lombok.NoArgsConstructor;
+import lombok.Data;
 
 @Getter
 @Setter
@@ -11,12 +15,12 @@ public class Paragraph {
 
     private int id;
 
-    private int paragraph_num;
+    private int paragraphNum;
 
     private String plaintext;
 
-    private int character_id;
+    private int characterId;
 
-    private int chapter_id;
+    private int chapterId;
 
 }

@@ -1,6 +1,5 @@
 package hu.uni.eku.tzs.service;
 
-
 import hu.uni.eku.tzs.dao.ChapterRepository;
 import hu.uni.eku.tzs.dao.entity.ChapterEntity;
 import hu.uni.eku.tzs.model.Chapter;
@@ -16,7 +15,6 @@ import java.util.stream.Collectors;
 @Service
 @RequiredArgsConstructor
 public class ChapterManagerImpl implements ChapterManager {
-
     private final ChapterRepository chapterRepository;
 
     private static Chapter convertChapterEntity2Model(ChapterEntity chapterEntity) {
@@ -25,7 +23,7 @@ public class ChapterManagerImpl implements ChapterManager {
                 chapterEntity.getAct(),
                 chapterEntity.getScene(),
                 chapterEntity.getDescription(),
-                chapterEntity.getWork_id()
+                chapterEntity.getWorkId()
         );
     }
 
@@ -35,13 +33,16 @@ public class ChapterManagerImpl implements ChapterManager {
                 .act(chapter.getAct())
                 .scene(chapter.getScene())
                 .description(chapter.getDescription())
-                .work_id(chapter.getWork_id())
+                .workId(chapter.getWorkId())
                 .build();
     }
 
     @Override
     public Collection<Chapter> readAll() {
-        return chapterRepository.findAll().stream().map(ChapterManagerImpl::convertChapterEntity2Model).collect(Collectors.toList());
+        return chapterRepository.findAll()
+                .stream()
+                .map(ChapterManagerImpl::convertChapterEntity2Model)
+                .collect(Collectors.toList());
     }
 
     @Override
@@ -55,18 +56,16 @@ public class ChapterManagerImpl implements ChapterManager {
 
     @Override
     public Chapter record(Chapter chapter) throws ChapterAlreadyExistsException {
-        if (chapterRepository.findById(chapter.getId()).isPresent())
-        {
+        if (chapterRepository.findById(chapter.getId()).isPresent()) {
             throw new ChapterAlreadyExistsException("A chapter already owns this id");
         }
-
         ChapterEntity chapterEntity = chapterRepository.save(
                 ChapterEntity.builder()
                         .id(chapter.getId())
                         .act(chapter.getAct())
                         .scene(chapter.getScene())
                         .description(chapter.getDescription())
-                        .work_id(chapter.getWork_id())
+                        .workId(chapter.getWorkId())
                         .build()
         );
         return convertChapterEntity2Model(chapterEntity);
@@ -75,17 +74,17 @@ public class ChapterManagerImpl implements ChapterManager {
     @Override
     public Chapter modify(Chapter chapter) throws ChapterNotFoundException {
         ChapterEntity entity = convertChapterModel2Entity(chapter);
-        if (chapterRepository.findById(chapter.getId()).isEmpty())
-        {
-            throw new ChapterNotFoundException(String.format("Can not found chapter with id %id", chapter.getId()));
+        if (chapterRepository.findById(chapter.getId()).isEmpty()) {
+            throw new ChapterNotFoundException(String.format(
+                    "Can not found chapter with id %id",
+                    chapter.getId()));
         }
         return convertChapterEntity2Model(chapterRepository.save(entity));
     }
 
     @Override
     public void delete(Chapter chapter) throws ChapterNotFoundException {
-        if (chapterRepository.findById(chapter.getId()).isEmpty())
-        {
+        if (chapterRepository.findById(chapter.getId()).isEmpty()) {
             throw new ChapterNotFoundException("Chapter does not exist");
         }
         chapterRepository.delete(convertChapterModel2Entity(chapter));

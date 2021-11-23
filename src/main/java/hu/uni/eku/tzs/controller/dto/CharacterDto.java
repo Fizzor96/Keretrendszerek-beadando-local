@@ -1,6 +1,5 @@
 package hu.uni.eku.tzs.controller.dto;
 
-
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -14,7 +13,7 @@ public class CharacterDto {
 
     private int id;
 
-    private String char_name;
+    private String charName;
 
     private String abbrev;
 

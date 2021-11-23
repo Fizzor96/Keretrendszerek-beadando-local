@@ -32,6 +32,6 @@ public class ChapterEntity {
     private String description;
 
     @Column(name = "work_id")
-    private int work_id;
+    private int workId;
 
 }

@@ -23,14 +23,14 @@ public class ParagraphEntity {
     private int id;
 
     @Column(name = "ParagraphNum")
-    private int paragraph_num;
+    private int paragraphNum;
 
     @Column(name = "PlainText")
     private String plaintext;
 
     @Column(name = "character_id")
-    private int character_id;
+    private int characterId;
 
     @Column(name = "chapter_id")
-    private int chapter_id;
+    private int chapterId;
 }

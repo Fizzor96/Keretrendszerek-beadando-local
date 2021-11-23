@@ -1,6 +1,10 @@
 package hu.uni.eku.tzs.model;
 
-import lombok.*;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.AllArgsConstructor;
+import lombok.NoArgsConstructor;
+import lombok.Data;
 
 @Getter
 @Setter
@@ -13,10 +17,10 @@ public class Work {
 
     private String title;
 
-    private String long_title;
+    private String longTitle;
 
     private int date;
 
-    private String genre_type;
+    private String genreType;
 
 }

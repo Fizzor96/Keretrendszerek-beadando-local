@@ -1,6 +1,5 @@
 package hu.uni.eku.tzs.controller.dto;
 
-
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -16,9 +15,9 @@ public class WorkDto {
 
     private String title;
 
-    private String long_title;
+    private String longTitle;
 
     private int date;
 
-    private String genre_type;
+    private String genreType;
 }

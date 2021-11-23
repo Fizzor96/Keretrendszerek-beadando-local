@@ -26,13 +26,13 @@ public class WorkEntity {
     private String title;
 
     @Column(name = "LongTitle")
-    private String long_title;
+    private String longTitle;
 
     @Column(name = "Date")
     private int date;
 
     @Column(name = "GenreType")
-    private String genre_type;
+    private String genreType;
 
 
 

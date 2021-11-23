@@ -13,11 +13,11 @@ public class ParagraphDto {
 
     private int id;
 
-    private int paragraph_num;
+    private int paragraphNum;
 
     private String plaintext;
 
-    private int character_id;
+    private int characterId;
 
-    private int chapter_id;
+    private int chapterId;
 }

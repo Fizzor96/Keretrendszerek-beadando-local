@@ -23,7 +23,7 @@ public class CharacterEntity {
     private int id;
 
     @Column(name = "CharName")
-    private String char_name;
+    private String charName;
 
     @Column(name = "Abbrev")
     private String abbrev;

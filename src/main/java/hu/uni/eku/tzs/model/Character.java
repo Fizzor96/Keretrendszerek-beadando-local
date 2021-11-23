@@ -1,6 +1,10 @@
 package hu.uni.eku.tzs.model;
 
-import lombok.*;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.AllArgsConstructor;
+import lombok.NoArgsConstructor;
+import lombok.Data;
 
 @Getter
 @Setter
@@ -11,7 +15,7 @@ public class Character {
 
     private int id;
 
-    private String char_name;
+    private String charName;
 
     private String abbrev;
 

@@ -2,13 +2,21 @@ package hu.uni.eku.tzs.service.exceptions;
 
 public class ParagraphNotFoundException extends Exception {
 
-    public ParagraphNotFoundException() {}
+    public ParagraphNotFoundException() {
 
-    public ParagraphNotFoundException(String message) { super(message); }
+    }
 
-    public ParagraphNotFoundException(String message, Throwable cause) { super(message, cause); }
+    public ParagraphNotFoundException(String message) {
+        super(message);
+    }
 
-    public ParagraphNotFoundException(Throwable cause) { super(cause); }
+    public ParagraphNotFoundException(String message, Throwable cause) {
+        super(message, cause);
+    }
+
+    public ParagraphNotFoundException(Throwable cause) {
+        super(cause);
+    }
 
     public ParagraphNotFoundException(
             String message,

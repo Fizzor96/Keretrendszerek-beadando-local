@@ -1,6 +1,5 @@
 package hu.uni.eku.tzs.controller;
 
-
 import io.swagger.annotations.Api;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.RequestMapping;
