@@ -76,7 +76,7 @@ public class ParagraphManagerImpl implements ParagraphManager {
         ParagraphEntity entity = convertParagraphModel2Entity(paragraph);
         if (paragraphRepository.findById(paragraph.getId()).isEmpty()) {
             throw new ParagraphNotFoundException(String.format(
-                    "Can not found paragraph with id %id",
+                    "Can not found paragraph with id %s",
                     paragraph.getId()));
         }
         return convertParagraphEntity2Model(paragraphRepository.save(entity));

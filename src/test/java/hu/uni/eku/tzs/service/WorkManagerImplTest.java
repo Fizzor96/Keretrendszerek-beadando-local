@@ -50,12 +50,12 @@ public class WorkManagerImplTest {
         assertThat(actual).usingRecursiveComparison().isEqualTo(testWork);
     }
 
-//    @Test
-//    void modifyWorkThrowsWorkNotFoundException() {
-//        Work testWork = TestDataProvider.getTestWork1();
-//        when(workRepository.findById(testWork.getId())).thenReturn(Optional.empty());
-//        assertThatThrownBy(() -> service.modify(testWork)).isInstanceOf(WorkNotFoundException.class);
-//    }
+    @Test
+    void modifyWorkThrowsWorkNotFoundException() {
+        Work testWork = TestDataProvider.getTestWork1();
+        when(workRepository.findById(testWork.getId())).thenReturn(Optional.empty());
+        assertThatThrownBy(() -> service.modify(testWork)).isInstanceOf(WorkNotFoundException.class);
+    }
 
     @Test
     void recordWorkAlreadyExistsException() {

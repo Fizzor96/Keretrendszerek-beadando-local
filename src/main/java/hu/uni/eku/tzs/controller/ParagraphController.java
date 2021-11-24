@@ -26,7 +26,7 @@ import java.util.Collection;
 import java.util.stream.Collectors;
 
 @Api(tags = "paragraphs")
-@RequestMapping("paragraphs")
+@RequestMapping("/paragraphs")
 @RestController
 @RequiredArgsConstructor
 public class ParagraphController {
