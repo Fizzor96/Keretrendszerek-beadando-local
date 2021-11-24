@@ -4,19 +4,13 @@ import hu.uni.eku.tzs.controller.dto.CharacterDto;
 import hu.uni.eku.tzs.controller.dto.CharacterMapper;
 import hu.uni.eku.tzs.model.Character;
 import hu.uni.eku.tzs.service.CharacterManager;
+import hu.uni.eku.tzs.service.exceptions.CharacterAlreadyExistsException;
 import hu.uni.eku.tzs.service.exceptions.CharacterNotFoundException;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
 
 import javax.validation.Valid;
@@ -48,6 +42,18 @@ public class CharacterController {
         try {
             return characterMapper.character2characterDto(characterManager.readById(id));
         } catch (CharacterNotFoundException e) {
+            throw new ResponseStatusException(HttpStatus.INTERNAL_SERVER_ERROR, e.getMessage());
+        }
+    }
+
+    @ApiOperation("Record")
+    @PostMapping(value = {""})
+    public CharacterDto create(@Valid @RequestBody CharacterDto recordRequestDto) {
+        Character character = characterMapper.characterDto2character(recordRequestDto);
+        try {
+            Character recordedCharacter = characterManager.record(character);
+            return characterMapper.character2characterDto(recordedCharacter);
+        } catch (CharacterAlreadyExistsException e) {
             throw new ResponseStatusException(HttpStatus.INTERNAL_SERVER_ERROR, e.getMessage());
         }
     }
