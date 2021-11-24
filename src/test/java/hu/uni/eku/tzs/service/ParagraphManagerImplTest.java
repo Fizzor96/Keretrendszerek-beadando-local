@@ -1,16 +1,8 @@
 package hu.uni.eku.tzs.service;
 
-import hu.uni.eku.tzs.dao.ChapterRepository;
-import hu.uni.eku.tzs.dao.CharacterRepository;
 import hu.uni.eku.tzs.dao.ParagraphRepository;
-import hu.uni.eku.tzs.dao.entity.ChapterEntity;
 import hu.uni.eku.tzs.dao.entity.ParagraphEntity;
-import hu.uni.eku.tzs.dao.entity.CharacterEntity;
-import hu.uni.eku.tzs.model.Chapter;
 import hu.uni.eku.tzs.model.Paragraph;
-import hu.uni.eku.tzs.model.Character;
-import hu.uni.eku.tzs.service.exceptions.ChapterNotFoundException;
-import hu.uni.eku.tzs.service.exceptions.CharacterNotFoundException;
 import hu.uni.eku.tzs.service.exceptions.ParagraphAlreadyExistsException;
 import hu.uni.eku.tzs.service.exceptions.ParagraphNotFoundException;
 import org.junit.jupiter.api.Test;
@@ -19,7 +11,6 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
-import javax.swing.text.html.Option;
 import java.util.Collection;
 import java.util.List;
 import java.util.Optional;
@@ -27,7 +18,6 @@ import java.util.Optional;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 import static org.mockito.ArgumentMatchers.any;
-import static org.mockito.Mockito.lenient;
 import static org.mockito.Mockito.when;
 
 @ExtendWith(MockitoExtension.class)
