@@ -63,7 +63,8 @@ public class WorkManagerImplTest {
         WorkEntity testWorkEntity = TestDataProvider.getTestWork1Entity();
         when(workRepository.findById(TestDataProvider.WORK1_ID))
                 .thenReturn(Optional.ofNullable(testWorkEntity));
-        assertThatThrownBy(() -> service.record(testWork)).isInstanceOf(WorkAlreadyExistsException.class);
+        assertThatThrownBy(() -> service.record(testWork))
+                .isInstanceOf(WorkAlreadyExistsException.class);
     }
 
     @Test
