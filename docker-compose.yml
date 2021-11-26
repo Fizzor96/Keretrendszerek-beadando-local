@@ -12,12 +12,14 @@ services:
     ports:
       - '127.0.0.1:3306:3306'
   backend:
-    build:
-      context: .
-      dockerfile: Dockerfile
+    build: .
     ports:
       - '127.0.0.1:8080:8080'
     environment:
+#      '0': DB_USER=root
+#      '1': DB_PASSWORD=password
+#      '2': DB_HOST=localhost
+#      '3': DB_NAME=Shakespeare
       DB_HOST: db
       DB_PORT: 3306
       DB_NAME: Shakespeare
